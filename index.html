@@ -492,6 +492,27 @@
   }
   .foot-bottom em { color: var(--gold); font-style: normal; font-weight: 600; }
 
+  /* ─── Pricing ─── */
+  .pricing-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  @media (max-width: 860px) { .pricing-wrap { grid-template-columns: 1fr; gap: 48px; } }
+  .price-side { display: flex; flex-direction: column; justify-content: center; }
+  .price-side h3 { font-weight: 600; font-size: clamp(32px, 4vw, 52px); line-height: 1.05; letter-spacing: -.035em; margin-top: 18px; }
+  .price-side h3 em { font-style: normal; color: var(--gold); font-weight: 600; }
+  .price-side p { color: var(--ink-2); font-size: 16px; line-height: 1.6; margin-top: 20px; max-width: 460px; }
+  .price-side-list { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .price-side-item { display: flex; gap: 14px; align-items: flex-start; font-size: 15px; color: var(--ink-2); line-height: 1.5; }
+  .price-side-item::before { content: ""; flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); margin-top: 8px; }
+  .price-card { position: relative; padding: 48px; border: 1px solid var(--hair); border-radius: 24px; background: var(--bg-2); overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 40px 80px -40px rgba(26,26,27,.15); }
+  .price-card::before { content: ""; position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(132,24,57,.12), transparent 60%); filter: blur(10px); pointer-events: none; }
+  .price-card > * { position: relative; z-index: 1; }
+  .price-badge { display: inline-flex; align-self: flex-start; padding: 6px 12px; border-radius: 999px; background: var(--gold-soft); color: var(--gold); font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; }
+  .price-name { font-weight: 600; font-size: 30px; line-height: 1.1; margin-top: 18px; letter-spacing: -.025em; }
+  .price-name em { font-style: normal; color: var(--gold); font-weight: 600; }
+  .price-incl { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--hair); display: flex; flex-direction: column; gap: 12px; }
+  .price-incl-row { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+  .price-incl-row::before { content: ""; flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 8px; }
+  .price-cta { margin-top: 32px; }
+
   /* ─── Reveal animation ─── */
   .reveal {
     opacity: 0; transform: translateY(24px);
@@ -512,6 +533,7 @@
     <a href="#" class="brand">aura<em>bot</em></a>
     <div class="nav-links">
       <a href="#features">Funkcje</a>
+      <a href="#pricing">Zacznij</a>
       <a href="#security">Bezpieczeństwo</a>
       <a href="#demo">Przetestuj</a>
     </div>
@@ -695,6 +717,44 @@
       <span class="lbl">Ścieżka alternatywna</span>
       <p class="copy">Klient chce, żebyś <em>oddzwonił osobiście?</em> Asystent przyjmuje wiadomość i wysyła Ci SMS z numerem oraz kontekstem rozmowy.</p>
       <span class="arrow-big">→</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="pad-xl" style="border-top: 1px solid var(--hair);">
+  <div class="wrap">
+    <div class="pricing-wrap">
+      <div class="price-side reveal">
+        <span class="eyebrow">Jak zacząć</span>
+        <h3>Sprawdź asystenta u siebie. Bez ryzyka, <em>bez zobowiązań.</em></h3>
+        <p>Konfigurujemy wszystko razem z Tobą — od numeru telefonu po integrację z kalendarzem. Demo zajmuje 15 minut, wdrożenie kilka godzin.</p>
+        <div class="price-side-list">
+          <div class="price-side-item">Asystent aktywny już w kilka godzin od konfiguracji</div>
+          <div class="price-side-item">Bez umów na lata — warunki ustalamy indywidualnie</div>
+          <div class="price-side-item">Dedykowany opiekun przez cały czas trwania współpracy</div>
+          <div class="price-side-item">Możliwość rozszerzenia na więcej numerów i rynków</div>
+        </div>
+      </div>
+
+      <div class="price-card reveal" data-delay="1">
+        <span class="price-badge">● Limitowane miejsca</span>
+        <div class="price-name">Start z <em>Asystentem</em></div>
+        <div class="price-incl">
+          <div class="price-incl-row">Dedykowany numer telefonu dla asystenta</div>
+          <div class="price-incl-row">Nieograniczone połączenia 24/7</div>
+          <div class="price-incl-row">Integracja z Google Calendar</div>
+          <div class="price-incl-row">SMS i e-mail z podsumowaniem każdej rozmowy</div>
+          <div class="price-incl-row">Panel z historią rozmów i umówionych wizyt</div>
+          <div class="price-incl-row">Onboarding i wsparcie techniczne w cenie</div>
+        </div>
+        <div class="price-cta">
+          <a href="#cta" class="btn btn-accent" style="width:100%;justify-content:center;">
+            Umów się na demo
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
