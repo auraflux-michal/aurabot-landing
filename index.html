@@ -330,6 +330,24 @@
   .step h4 { font-weight: 600; font-size: 20px; line-height: 1.25; letter-spacing: -.02em; }
   .step p { color: var(--ink-2); font-size: 14px; line-height: 1.65; margin-top: 10px; }
 
+  /* Callback path */
+  .callback-path {
+    margin-top: 48px; padding: 36px 40px;
+    border: 1px dashed var(--hair-strong); border-radius: 18px;
+    display: grid; grid-template-columns: auto 1fr auto;
+    gap: 24px; align-items: center; background: var(--bg);
+  }
+  @media (max-width: 760px) { .callback-path { grid-template-columns: 1fr; gap: 18px; } }
+  .callback-path .lbl {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--gold); white-space: nowrap; font-weight: 500;
+  }
+  .callback-path .copy {
+    font-weight: 500; font-size: 20px; line-height: 1.35; letter-spacing: -.02em; color: var(--ink);
+  }
+  .callback-path .copy em { font-style: normal; color: var(--gold); font-weight: 600; }
+  .callback-path .arrow-big { color: var(--gold); font-size: 24px; }
+
   /* ─── Trust ─── */
   .trust {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -493,13 +511,12 @@
   <div class="wrap nav-inner">
     <a href="#" class="brand">aura<em>bot</em></a>
     <div class="nav-links">
-      <a href="#how">Jak to działa</a>
       <a href="#features">Funkcje</a>
       <a href="#security">Bezpieczeństwo</a>
       <a href="#demo">Przetestuj</a>
     </div>
     <a href="#cta" class="nav-cta">
-      Umów rozmowę
+      Umów się na demo
       <span class="arrow">→</span>
     </a>
   </div>
@@ -510,24 +527,18 @@
   <div class="hero-bg"></div>
   <div class="wrap hero-inner">
     <div>
-      <span class="eyebrow reveal">Głosowy asystent AI dla agentów nieruchomości</span>
-      <h1 class="reveal" data-delay="1">
-        Asystent odbiera telefon, gdy Ty <em>jesteś w terenie.</em>
+      <h1 class="reveal">
+        Asystent odbiera telefon, gdy Ty <em>jesteś na spotkaniach.</em>
       </h1>
-      <p class="lead reveal" data-delay="2">
+      <p class="lead reveal" data-delay="1">
         Inteligentny asystent głosowy, który <strong>odbiera połączenia od klientów</strong>, proponuje wolne terminy oglądania, <strong>umawia wizytę</strong>, dodaje ją do kalendarza i wysyła Ci SMS-a. Żaden lead nie zostaje bez odpowiedzi.
       </p>
-      <div class="hero-cta reveal" data-delay="3">
+      <div class="hero-cta reveal" data-delay="2">
         <a href="#demo" class="btn btn-accent">
           Przetestuj na żywo
           <span class="arrow">→</span>
         </a>
         <a href="#how" class="btn btn-ghost">Jak to działa</a>
-      </div>
-      <div class="hero-meta reveal" data-delay="4">
-        <span><span class="dot"></span> Dostępny 24/7</span>
-        <span><span class="dot"></span> Rozmawia po polsku</span>
-        <span><span class="dot"></span> RODO compliant</span>
       </div>
     </div>
 
@@ -602,42 +613,6 @@
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section id="how" class="how pad-l">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="reveal">
-        <span class="eyebrow">Jak to działa</span>
-      </div>
-      <h2 class="reveal" data-delay="1">
-        Klient dzwoni. Asystent <em>robi resztę.</em>
-      </h2>
-    </div>
-
-    <div class="flow">
-      <div class="step reveal">
-        <div class="step-num">01</div>
-        <h4>Klient dzwoni z ogłoszenia.</h4>
-        <p>Połączenie trafia do asystenta — w godzinach pracy, po godzinach, albo gdy jesteś z innym klientem. Zawsze ktoś odbierze.</p>
-      </div>
-      <div class="step reveal" data-delay="1">
-        <div class="step-num">02</div>
-        <h4>Asystent proponuje wolne terminy.</h4>
-        <p>Sprawdza Twój kalendarz w czasie rzeczywistym i przedstawia 2–3 wolne sloty na oglądanie. Rozmawia naturalnie, po polsku.</p>
-      </div>
-      <div class="step reveal" data-delay="2">
-        <div class="step-num">03</div>
-        <h4>Umawia wizytę i wpisuje do kalendarza.</h4>
-        <p>Klient wybiera termin — asystent potwierdza, zapisuje kontakt i dodaje wydarzenie w Google Calendar z adresem nieruchomości.</p>
-      </div>
-      <div class="step reveal" data-delay="3">
-        <div class="step-num">04</div>
-        <h4>Wysyła Ci SMS i e-mail.</h4>
-        <p>Dostajesz powiadomienie z imieniem klienta, numerem, adresem i terminem. Wsiadasz do auta — wszystko już jest w kalendarzu.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- FEATURES -->
 <section id="features" class="pad-xl">
@@ -714,6 +689,12 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="callback-path reveal">
+      <span class="lbl">Ścieżka alternatywna</span>
+      <p class="copy">Klient chce, żebyś <em>oddzwonił osobiście?</em> Asystent przyjmuje wiadomość i wysyła Ci SMS z numerem oraz kontekstem rozmowy.</p>
+      <span class="arrow-big">→</span>
     </div>
   </div>
 </section>
@@ -807,21 +788,20 @@
 <!-- CTA BANNER -->
 <section id="cta" class="cta-banner">
   <div class="wrap">
-    <span class="eyebrow reveal">Porozmawiajmy</span>
+    <span class="eyebrow reveal">Zacznijmy</span>
     <h2 class="reveal" data-delay="1">
-      Pokaż nam swój proces. <em>Dopasujemy asystenta do Ciebie.</em>
+      Pokażemy asystenta w akcji — <em>15 minut, na żywo.</em>
     </h2>
-    <p class="reveal" data-delay="2">15 minut wystarczy, żeby pokazać Ci asystenta w akcji i ocenić, ile czasu może Ci zwrócić każdego tygodnia.</p>
+    <p class="reveal" data-delay="2">Zobacz, jak odbiera prawdziwe połączenie i umawia wizytę w Twoim kalendarzu. Decyzję podejmiesz po demo.</p>
     <div class="reveal" data-delay="3" style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
       <a href="#" class="btn btn-accent">
-        Umów rozmowę
+        Umów się na demo
         <span class="arrow">→</span>
       </a>
       <a href="mailto:hello@aurabot.pl" class="btn btn-ghost">Napisz do nas</a>
     </div>
     <div class="reveal" data-delay="4" style="margin-top: 36px; display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; color: var(--ink-3); font-size: 13px; font-family: var(--mono); letter-spacing: .06em;">
-      <span><span class="dot" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-right:8px;vertical-align:middle;"></span>Bez zobowiązań</span>
-      <span><span class="dot" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-right:8px;vertical-align:middle;"></span>Demo na żywo</span>
+      <span><span class="dot" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-right:8px;vertical-align:middle;"></span>Demo bez zobowiązań</span>
       <span><span class="dot" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-right:8px;vertical-align:middle;"></span>RODO compliant</span>
     </div>
   </div>
@@ -838,7 +818,6 @@
       <div class="foot-col">
         <h6>Produkt</h6>
         <ul>
-          <li><a href="#how">Jak to działa</a></li>
           <li><a href="#features">Funkcje</a></li>
           <li><a href="#security">Bezpieczeństwo</a></li>
           <li><a href="#demo">Przetestuj</a></li>
@@ -848,7 +827,7 @@
         <h6>Kontakt</h6>
         <ul>
           <li><a href="mailto:hello@aurabot.pl">hello@aurabot.pl</a></li>
-          <li><a href="#cta">Umów rozmowę</a></li>
+          <li><a href="#cta">Umów demo</a></li>
           <li><a href="#">Polityka prywatności</a></li>
           <li><a href="#">RODO</a></li>
         </ul>
@@ -856,7 +835,7 @@
     </div>
     <div class="foot-bottom">
       <span>© 2026 aurabot · wszelkie prawa zastrzeżone</span>
-      <span>Powered by <em>aurabot</em></span>
+      <span>Created with love by <a href="https://auraflux.pl" style="color:var(--gold);font-weight:600;">auraflux.pl</a></span>
     </div>
   </div>
 </footer>
