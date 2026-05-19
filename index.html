@@ -81,8 +81,6 @@
                 box-shadow .35s ease, border-color .25s ease, color .25s ease;
     will-change: transform;
   }
-  .btn-gold { background: var(--ink); color: var(--bg); box-shadow: inset 0 1px 0 rgba(255,255,255,.08); }
-  .btn-gold:hover { background: #000; transform: translateY(-1px); box-shadow: 0 18px 40px -16px rgba(0,0,0,.4); }
   .btn-accent { background: var(--gold); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,.18); }
   .btn-accent:hover { background: var(--gold-deep); transform: translateY(-1px); box-shadow: 0 18px 50px -16px rgba(132,24,57,.45); }
   .btn-ghost { background: transparent; color: var(--ink); border-color: var(--hair-strong); }
@@ -245,16 +243,15 @@
   @media (max-width: 760px) { .feat-grid { grid-template-columns: 1fr; } }
   .feat {
     background: var(--bg-2); padding: 44px;
-    position: relative; min-height: 360px;
+    position: relative; min-height: 320px;
     display: flex; flex-direction: column; justify-content: space-between;
     transition: background .3s ease; overflow: hidden;
   }
   .feat:hover { background: var(--bg-3); }
-  .feat-num { font-family: var(--mono); font-size: 11px; letter-spacing: .2em; color: var(--gold); text-transform: uppercase; font-weight: 500; }
-  .feat h3 { font-weight: 600; font-size: 30px; line-height: 1.1; letter-spacing: -.025em; margin-top: 18px; }
+  .feat h3 { font-weight: 600; font-size: 28px; line-height: 1.15; letter-spacing: -.025em; margin-top: 14px; }
   .feat p { color: var(--ink-2); font-size: 15px; line-height: 1.6; margin-top: 14px; max-width: 440px; }
   .feat-visual {
-    margin-top: 28px; height: 140px; border-radius: 14px;
+    margin-top: 28px; height: 120px; border-radius: 14px;
     border: 1px solid var(--hair); background: var(--bg);
     position: relative; overflow: hidden;
     display: flex; align-items: center; justify-content: center; padding: 18px;
@@ -263,14 +260,14 @@
   /* Incoming call visual */
   .v-call { display: flex; align-items: center; gap: 14px; width: 100%; }
   .v-call .ring {
-    width: 48px; height: 48px; border-radius: 50%;
+    width: 44px; height: 44px; border-radius: 50%;
     background: var(--gold-soft); color: var(--gold);
     display: flex; align-items: center; justify-content: center;
-    font-size: 20px; flex-shrink: 0; position: relative;
+    flex-shrink: 0; position: relative;
   }
   .v-call .ring::before {
     content: ""; position: absolute; inset: -8px; border-radius: 50%;
-    border: 1px solid rgba(132,24,57,.45);
+    border: 1px solid rgba(132,24,57,.35);
     animation: pulse 2s ease-out infinite;
   }
   @keyframes pulse {
@@ -284,7 +281,7 @@
   /* Slot picker visual */
   .v-slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; width: 100%; }
   .v-slot {
-    padding: 10px 6px; border-radius: 8px;
+    padding: 8px 6px; border-radius: 8px;
     background: var(--bg-3); border: 1px solid var(--hair);
     font-size: 11px; font-family: var(--mono); color: var(--ink-2);
     text-align: center; letter-spacing: .04em; font-weight: 500;
@@ -296,7 +293,7 @@
   .v-cal div { background: var(--bg-3); border-radius: 4px; border: 1px solid var(--hair); position: relative; }
   .v-cal div.has::after {
     content: ""; position: absolute; left: 4px; right: 4px; top: 50%;
-    height: 6px; border-radius: 3px; background: var(--gold); transform: translateY(-50%);
+    height: 5px; border-radius: 3px; background: var(--gold); transform: translateY(-50%);
   }
   .v-cal div.has.alt::after { background: var(--ink-3); }
 
@@ -323,94 +320,15 @@
   @media (max-width: 980px) { .flow { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 600px) { .flow { grid-template-columns: 1fr; } }
   .step {
-    background: var(--bg-2); padding: 40px 32px 36px;
-    min-height: 360px; display: flex; flex-direction: column; position: relative;
+    background: var(--bg-2); padding: 40px 32px 40px;
+    min-height: 320px; display: flex; flex-direction: column;
   }
   .step-num {
-    font-family: var(--sans); font-size: 64px; line-height: 1;
-    color: var(--gold); font-weight: 500; letter-spacing: -.04em; margin-bottom: 16px;
+    font-family: var(--sans); font-size: 56px; line-height: 1;
+    color: var(--gold); font-weight: 500; letter-spacing: -.04em; margin-bottom: 20px;
   }
-  .step h4 { font-weight: 600; font-size: 22px; line-height: 1.2; letter-spacing: -.02em; }
-  .step p { color: var(--ink-2); font-size: 14px; line-height: 1.6; margin-top: 12px; }
-  .step-tag {
-    margin-top: auto; padding-top: 24px;
-    font-family: var(--mono); font-size: 10px; color: var(--ink-3);
-    letter-spacing: .12em; text-transform: uppercase;
-    display: flex; align-items: center; gap: 8px; font-weight: 500;
-  }
-  .step-tag::before { content: ""; width: 20px; height: 1px; background: var(--gold); }
-
-  /* Callback path */
-  .callback-path {
-    margin-top: 64px; padding: 36px 40px;
-    border: 1px dashed var(--hair-strong); border-radius: 18px;
-    display: grid; grid-template-columns: auto 1fr auto;
-    gap: 24px; align-items: center; background: var(--bg);
-  }
-  @media (max-width: 760px) { .callback-path { grid-template-columns: 1fr; text-align: left; gap: 18px; } }
-  .callback-path .lbl {
-    font-family: var(--mono); font-size: 11px; letter-spacing: .16em;
-    text-transform: uppercase; color: var(--gold); white-space: nowrap; font-weight: 500;
-  }
-  .callback-path .copy {
-    font-weight: 500; font-size: 22px; line-height: 1.3; letter-spacing: -.02em; color: var(--ink);
-  }
-  .callback-path .copy em { font-style: normal; color: var(--gold); font-weight: 600; }
-  .callback-path .arrow-big { color: var(--gold); font-size: 24px; }
-
-  /* ─── Pricing ─── */
-  .pricing-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: stretch; }
-  @media (max-width: 860px) { .pricing-wrap { grid-template-columns: 1fr; gap: 32px; } }
-  .price-side { display: flex; flex-direction: column; justify-content: center; }
-  .price-side h3 {
-    font-weight: 600; font-size: clamp(32px, 4vw, 52px);
-    line-height: 1.05; letter-spacing: -.035em; margin-top: 18px;
-  }
-  .price-side h3 em { font-style: normal; color: var(--gold); font-weight: 600; }
-  .price-side p { color: var(--ink-2); font-size: 16px; line-height: 1.6; margin-top: 18px; max-width: 480px; }
-  .price-side ul { list-style: none; margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
-  .price-side ul li { display: flex; gap: 14px; align-items: flex-start; color: var(--ink-2); font-size: 14px; line-height: 1.5; }
-  .price-side ul li::before {
-    content: ""; flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%;
-    background: var(--gold-soft);
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23841839' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
-    background-size: 11px; background-position: center; background-repeat: no-repeat;
-    margin-top: 2px;
-  }
-  .price-card {
-    position: relative; padding: 48px;
-    border: 1px solid var(--hair); border-radius: 24px;
-    background: var(--bg-2); overflow: hidden;
-    display: flex; flex-direction: column;
-    box-shadow: 0 40px 80px -40px rgba(26,26,27,.15);
-  }
-  .price-card::before {
-    content: ""; position: absolute; top: -100px; right: -100px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(132,24,57,.12), transparent 60%);
-    filter: blur(10px); pointer-events: none;
-  }
-  .price-card > * { position: relative; z-index: 1; }
-  .price-badge {
-    display: inline-flex; align-self: flex-start; padding: 6px 12px;
-    border-radius: 999px; background: var(--gold-soft); color: var(--gold);
-    font-family: var(--mono); font-size: 10px; letter-spacing: .14em;
-    text-transform: uppercase; font-weight: 500;
-  }
-  .price-name { font-weight: 600; font-size: 30px; line-height: 1.1; margin-top: 18px; letter-spacing: -.025em; }
-  .price-name em { font-style: normal; color: var(--gold); font-weight: 600; }
-  .price-amount { margin-top: 28px; display: flex; align-items: baseline; gap: 10px; }
-  .price-amount .val { font-family: var(--sans); font-weight: 600; font-size: 72px; line-height: .95; letter-spacing: -.05em; }
-  .price-amount .cur { font-family: var(--mono); font-size: 14px; color: var(--ink-2); letter-spacing: .04em; font-weight: 500; }
-  .price-amount .per { font-size: 14px; color: var(--ink-3); }
-  .price-sub { color: var(--ink-3); font-size: 13px; margin-top: 8px; font-family: var(--mono); letter-spacing: .04em; }
-  .price-incl { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--hair); display: flex; flex-direction: column; gap: 12px; }
-  .price-incl-row { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--ink-2); line-height: 1.5; }
-  .price-incl-row::before {
-    content: ""; flex-shrink: 0; width: 6px; height: 6px;
-    border-radius: 50%; background: var(--gold); margin-top: 8px;
-  }
-  .price-cta { margin-top: 32px; }
+  .step h4 { font-weight: 600; font-size: 20px; line-height: 1.25; letter-spacing: -.02em; }
+  .step p { color: var(--ink-2); font-size: 14px; line-height: 1.65; margin-top: 10px; }
 
   /* ─── Trust ─── */
   .trust {
@@ -437,6 +355,88 @@
   .trust-item h5 { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 4px; letter-spacing: -.01em; }
   .trust-item span { font-size: 13px; color: var(--ink-3); line-height: 1.5; }
 
+  /* ─── Demo / Walk the talk ─── */
+  .demo-section { border-top: 1px solid var(--hair); }
+  .demo-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  @media (max-width: 860px) { .demo-inner { grid-template-columns: 1fr; gap: 48px; } }
+  .demo-copy h2 {
+    font-weight: 600; font-size: clamp(34px, 4.2vw, 56px);
+    line-height: 1.05; letter-spacing: -.035em; text-wrap: balance;
+  }
+  .demo-copy h2 em { font-style: normal; color: var(--gold); }
+  .demo-copy p {
+    color: var(--ink-2); font-size: 17px; line-height: 1.6;
+    margin-top: 20px; max-width: 480px;
+  }
+  .demo-copy .demo-cta { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .demo-card {
+    background: var(--bg-2); border: 1px solid var(--hair);
+    border-radius: 28px; padding: 48px;
+    box-shadow: 0 40px 80px -40px rgba(26,26,27,.12);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; gap: 28px;
+  }
+  .demo-card::before {
+    content: ""; position: absolute; top: -80px; right: -80px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(132,24,57,.10), transparent 60%);
+    filter: blur(20px); pointer-events: none;
+  }
+  .demo-card > * { position: relative; z-index: 1; }
+  .demo-label {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--gold); font-weight: 500;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .demo-label::before { content: ""; width: 18px; height: 1px; background: var(--gold); }
+  .demo-phone {
+    font-family: var(--sans); font-size: clamp(32px, 4vw, 46px);
+    font-weight: 700; letter-spacing: -.03em; color: var(--ink);
+    line-height: 1;
+  }
+  .demo-phone a { color: inherit; transition: color .2s ease; }
+  .demo-phone a:hover { color: var(--gold); }
+  .demo-desc {
+    font-size: 14px; color: var(--ink-2); line-height: 1.6;
+    padding-top: 20px; border-top: 1px solid var(--hair);
+  }
+  .demo-steps { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+  .demo-step {
+    display: flex; gap: 12px; align-items: flex-start;
+    font-size: 13px; color: var(--ink-2); line-height: 1.5;
+  }
+  .demo-step-num {
+    flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+    background: var(--gold-soft); color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; margin-top: 1px;
+  }
+  .waveform {
+    display: flex; align-items: center; gap: 3px; height: 32px;
+  }
+  .waveform span {
+    display: block; width: 3px; border-radius: 2px;
+    background: var(--gold); opacity: .7;
+    animation: wave 1.2s ease-in-out infinite;
+  }
+  .waveform span:nth-child(1) { height: 8px; animation-delay: 0s; }
+  .waveform span:nth-child(2) { height: 20px; animation-delay: .1s; }
+  .waveform span:nth-child(3) { height: 28px; animation-delay: .2s; }
+  .waveform span:nth-child(4) { height: 16px; animation-delay: .3s; }
+  .waveform span:nth-child(5) { height: 24px; animation-delay: .4s; }
+  .waveform span:nth-child(6) { height: 12px; animation-delay: .5s; }
+  .waveform span:nth-child(7) { height: 20px; animation-delay: .35s; }
+  .waveform span:nth-child(8) { height: 28px; animation-delay: .15s; }
+  .waveform span:nth-child(9) { height: 10px; animation-delay: .45s; }
+  .waveform span:nth-child(10) { height: 18px; animation-delay: .25s; }
+  @keyframes wave {
+    0%, 100% { transform: scaleY(1); opacity: .5; }
+    50% { transform: scaleY(1.6); opacity: 1; }
+  }
+
   /* ─── CTA banner ─── */
   .cta-banner { text-align: center; padding: 120px 0; border-top: 1px solid var(--hair); position: relative; overflow: hidden; }
   .cta-banner::before {
@@ -452,7 +452,7 @@
     max-width: 880px; margin: 24px auto 28px; text-wrap: balance;
   }
   .cta-banner h2 em { font-style: normal; color: var(--gold); font-weight: 600; }
-  .cta-banner p { color: var(--ink-2); font-size: 17px; max-width: 540px; margin: 0 auto 36px; }
+  .cta-banner p { color: var(--ink-2); font-size: 17px; max-width: 520px; margin: 0 auto 36px; }
 
   /* ─── Footer ─── */
   footer { background: var(--bg-2); border-top: 1px solid var(--hair); padding: 72px 0 32px; }
@@ -495,11 +495,11 @@
     <div class="nav-links">
       <a href="#how">Jak to działa</a>
       <a href="#features">Funkcje</a>
-      <a href="#pricing">Pilotaż</a>
       <a href="#security">Bezpieczeństwo</a>
+      <a href="#demo">Przetestuj</a>
     </div>
     <a href="#cta" class="nav-cta">
-      Umów się na demo
+      Umów rozmowę
       <span class="arrow">→</span>
     </a>
   </div>
@@ -510,32 +510,31 @@
   <div class="hero-bg"></div>
   <div class="wrap hero-inner">
     <div>
-      <span class="eyebrow reveal">Pilotaż dla agentów nieruchomości</span>
+      <span class="eyebrow reveal">Głosowy asystent AI dla agentów nieruchomości</span>
       <h1 class="reveal" data-delay="1">
-        Agent odbiera telefon, gdy Ty <em>jesteś w terenie.</em>
+        Asystent odbiera telefon, gdy Ty <em>jesteś w terenie.</em>
       </h1>
       <p class="lead reveal" data-delay="2">
-        Głosowy asystent AI, który <strong>odbiera połączenia od klientów</strong>, proponuje wolne terminy oglądania, <strong>umawia wizytę</strong>, dodaje ją do kalendarza i wysyła Ci SMS-a. Żaden lead nie zostaje bez odpowiedzi.
+        Inteligentny asystent głosowy, który <strong>odbiera połączenia od klientów</strong>, proponuje wolne terminy oglądania, <strong>umawia wizytę</strong>, dodaje ją do kalendarza i wysyła Ci SMS-a. Żaden lead nie zostaje bez odpowiedzi.
       </p>
       <div class="hero-cta reveal" data-delay="3">
-        <a href="#cta" class="btn btn-accent">
-          Umów się na demo
+        <a href="#demo" class="btn btn-accent">
+          Przetestuj na żywo
           <span class="arrow">→</span>
         </a>
-        <a href="#how" class="btn btn-ghost">Zobacz jak to działa</a>
+        <a href="#how" class="btn btn-ghost">Jak to działa</a>
       </div>
       <div class="hero-meta reveal" data-delay="4">
-        <span><span class="dot"></span> Pilotaż · konfiguracja 3 000 zł</span>
-        <span><span class="dot"></span> Jednorazowo</span>
+        <span><span class="dot"></span> Dostępny 24/7</span>
+        <span><span class="dot"></span> Rozmawia po polsku</span>
         <span><span class="dot"></span> RODO compliant</span>
       </div>
     </div>
 
-    <!-- Photo stage with floating cards -->
+    <!-- Photo stage -->
     <div class="photo-stage reveal" data-delay="2">
       <div class="photo-glow"></div>
 
-      <!-- Floating card 1: call received -->
       <div class="float-card fc-1">
         <div class="ic">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -543,12 +542,11 @@
           </svg>
         </div>
         <div>
-          <div class="ti">Odebrane przez Agenta · 01:24</div>
+          <div class="ti">Odebrane przez Asystenta · 01:24</div>
           <div class="tx">+48 602 ··· 412</div>
         </div>
       </div>
 
-      <!-- Floating card 2: appointment booked -->
       <div class="float-card fc-2">
         <div class="ic">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -561,7 +559,6 @@
         </div>
       </div>
 
-      <!-- Floating card 3: SMS notification -->
       <div class="float-card fc-3">
         <div class="ic">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -570,11 +567,10 @@
         </div>
         <div>
           <div class="ti">SMS do Ciebie</div>
-          <div class="tx">Nowy lead</div>
+          <div class="tx">Nowy lead · 21:16</div>
         </div>
       </div>
 
-      <!-- Photo frame -->
       <div class="photo-frame">
         <img src="client.jpg" alt="Klient dzwoniący z ogłoszenia" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
       </div>
@@ -614,7 +610,7 @@
         <span class="eyebrow">Jak to działa</span>
       </div>
       <h2 class="reveal" data-delay="1">
-        Klient dzwoni. Agent <em>robi resztę.</em>
+        Klient dzwoni. Asystent <em>robi resztę.</em>
       </h2>
     </div>
 
@@ -622,34 +618,23 @@
       <div class="step reveal">
         <div class="step-num">01</div>
         <h4>Klient dzwoni z ogłoszenia.</h4>
-        <p>Telefon przekierowany na Agenta — w godzinach pracy, po godzinach, albo gdy jesteś z innym klientem. Zawsze ktoś odbierze.</p>
-        <div class="step-tag">Telefon · 0 sek</div>
+        <p>Połączenie trafia do asystenta — w godzinach pracy, po godzinach, albo gdy jesteś z innym klientem. Zawsze ktoś odbierze.</p>
       </div>
       <div class="step reveal" data-delay="1">
         <div class="step-num">02</div>
-        <h4>Agent proponuje wolne terminy.</h4>
+        <h4>Asystent proponuje wolne terminy.</h4>
         <p>Sprawdza Twój kalendarz w czasie rzeczywistym i przedstawia 2–3 wolne sloty na oglądanie. Rozmawia naturalnie, po polsku.</p>
-        <div class="step-tag">Voice · ~ 40 sek</div>
       </div>
       <div class="step reveal" data-delay="2">
         <div class="step-num">03</div>
         <h4>Umawia wizytę i wpisuje do kalendarza.</h4>
-        <p>Klient wybiera termin — Agent potwierdza, zapisuje kontakt, dodaje wydarzenie w Google Calendar z adresem nieruchomości.</p>
-        <div class="step-tag">Calendar · automat</div>
+        <p>Klient wybiera termin — asystent potwierdza, zapisuje kontakt i dodaje wydarzenie w Google Calendar z adresem nieruchomości.</p>
       </div>
       <div class="step reveal" data-delay="3">
         <div class="step-num">04</div>
         <h4>Wysyła Ci SMS i e-mail.</h4>
         <p>Dostajesz powiadomienie z imieniem klienta, numerem, adresem i terminem. Wsiadasz do auta — wszystko już jest w kalendarzu.</p>
-        <div class="step-tag">Notify · natychmiast</div>
       </div>
-    </div>
-
-    <!-- Callback path -->
-    <div class="callback-path reveal">
-      <span class="lbl">Ścieżka alternatywna</span>
-      <p class="copy">Klient chce, żebyś <em>oddzwonił osobiście?</em> Agent przyjmuje wiadomość i wysyła Ci SMS z numerem oraz kontekstem rozmowy.</p>
-      <span class="arrow-big">→</span>
     </div>
   </div>
 </section>
@@ -659,7 +644,7 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="reveal">
-        <span class="eyebrow">Funkcje pilotażu</span>
+        <span class="eyebrow">Co potrafi asystent</span>
       </div>
       <h2 class="reveal" data-delay="1">
         Cztery rzeczy, które <em>odzyskują Twój czas.</em>
@@ -667,12 +652,10 @@
     </div>
 
     <div class="feat-grid">
-      <!-- Feature 1: Inbound calls -->
       <div class="feat reveal">
         <div>
-          <div class="feat-num">01 · Inbound</div>
           <h3>Odbiera połączenia za Ciebie</h3>
-          <p>Naturalna rozmowa po polsku, 24/7. Klient nie usłyszy automatu — usłyszy Agenta. Bez kolejek, bez „proszę zostawić wiadomość po sygnale".</p>
+          <p>Naturalna rozmowa po polsku, 24/7. Klient nie usłyszy automatu. Bez kolejek, bez „proszę zostawić wiadomość po sygnale".</p>
         </div>
         <div class="feat-visual">
           <div class="v-call">
@@ -683,18 +666,16 @@
             </div>
             <div class="info">
               <div class="num">+48 602 ··· 412</div>
-              <div class="sub">Połączenie przychodzące · godzina 21:14</div>
+              <div class="sub">Połączenie przychodzące · 21:14</div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Feature 2: Slot picker -->
       <div class="feat reveal" data-delay="1">
         <div>
-          <div class="feat-num">02 · Slots</div>
           <h3>Proponuje terminy oglądania</h3>
-          <p>Czyta Twój Google Calendar i podaje 2–3 wolne sloty dostosowane do dnia tygodnia, czasu dojazdu i Twoich preferencji.</p>
+          <p>Czyta Twój Google Calendar i podaje wolne sloty dostosowane do dnia tygodnia i Twoich preferencji.</p>
         </div>
         <div class="feat-visual">
           <div class="v-slots">
@@ -708,12 +689,10 @@
         </div>
       </div>
 
-      <!-- Feature 3: Calendar -->
       <div class="feat reveal" data-delay="2">
         <div>
-          <div class="feat-num">03 · Calendar</div>
           <h3>Wpisuje wizytę do kalendarza</h3>
-          <p>Po potwierdzeniu Agent tworzy wydarzenie w Google Calendar — z imieniem klienta, adresem nieruchomości i jego numerem telefonu. Bez ręcznych wpisów.</p>
+          <p>Po potwierdzeniu tworzy wydarzenie w Google Calendar z imieniem klienta, adresem nieruchomości i jego numerem. Bez ręcznych wpisów.</p>
         </div>
         <div class="feat-visual">
           <div class="v-cal">
@@ -723,12 +702,10 @@
         </div>
       </div>
 
-      <!-- Feature 4: Notify -->
       <div class="feat reveal" data-delay="3">
         <div>
-          <div class="feat-num">04 · Notify</div>
           <h3>Powiadamia Cię SMS-em i mailem</h3>
-          <p>Po umówieniu wizyty — lub gdy klient zostawia prośbę o oddzwonienie — dostajesz SMS-a z imieniem, numerem i pełnym kontekstem rozmowy.</p>
+          <p>Po umówieniu wizyty dostajesz SMS-a z imieniem, numerem i pełnym kontekstem rozmowy. Jeśli klient woli, żebyś oddzwonił — asystent przekazuje Ci kontakt.</p>
         </div>
         <div class="feat-visual">
           <div class="v-sms">
@@ -741,66 +718,14 @@
   </div>
 </section>
 
-<!-- PRICING -->
-<section id="pricing" class="pad-l">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="reveal">
-        <span class="eyebrow">Pilotaż</span>
-      </div>
-      <h2 class="reveal" data-delay="1">
-        Sprawdź Agenta u siebie. <em>Bez ryzyka, bez umowy na lata.</em>
-      </h2>
-    </div>
-
-    <div class="pricing-wrap">
-      <div class="price-side reveal">
-        <span class="eyebrow">Co odzyskujesz</span>
-        <h3>Czas, który tracisz na <em>odbieranie telefonu.</em></h3>
-        <p>Statystycznie agent nieruchomości spędza godzinę dziennie na samym odbieraniu połączeń i umawianiu terminów. Agent robi to za Ciebie — Ty skupiasz się na sprzedaży.</p>
-        <ul>
-          <li>Żaden lead z ogłoszenia nie zostaje bez odpowiedzi — nawet o 22:00 i w niedzielę.</li>
-          <li>Wszystkie wizyty trafiają do Twojego kalendarza, gotowe do zrealizowania.</li>
-          <li>Nie tracisz klientów, którzy „już dzwonili i nikt nie odebrał".</li>
-        </ul>
-      </div>
-
-      <div class="price-card reveal" data-delay="1">
-        <span class="price-badge">● Pilotaż · limitowane miejsca</span>
-        <div class="price-name">Pilotaż <em>Agent</em></div>
-
-        <div class="price-amount">
-          <span class="val">3&nbsp;000</span>
-          <span class="cur">PLN</span>
-          <span class="per">/ jednorazowo</span>
-        </div>
-        <div class="price-sub">Konfiguracja — opłata jednorazowa · netto</div>
-
-        <div class="price-incl">
-          <div class="price-incl-row">Indywidualna konfiguracja Agenta pod Twoje ogłoszenia i kalendarz.</div>
-          <div class="price-incl-row">Numer telefonu z przekierowaniem — bez wymiany Twojego głównego.</div>
-          <div class="price-incl-row">Integracja z Google Calendar i powiadomienia SMS / e-mail.</div>
-          <div class="price-incl-row">Obsługa scenariusza „proszę oddzwonić" — Agent przekazuje Ci kontakt.</div>
-          <div class="price-incl-row">Wsparcie 1:1 przez cały okres pilotażu.</div>
-        </div>
-
-        <a href="#cta" class="btn btn-accent price-cta">
-          Umów się na demo
-          <span class="arrow">→</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- TRUST / SECURITY -->
 <section id="security" class="pad-l">
   <div class="wrap">
     <div class="trust reveal">
       <div>
         <span class="eyebrow">Bezpieczeństwo</span>
-        <h3 style="margin-top: 18px">Rozmowy klientów chronione na poziomie, <em>na jakim chroni się dane bankowe.</em></h3>
-        <p>Agent przetwarza wrażliwe informacje o klientach i nieruchomościach. Zaprojektowaliśmy go tak, by spełniał najwyższe standardy bezpieczeństwa i pełną zgodność z RODO.</p>
+        <h3 style="margin-top: 18px">Twoje dane i rozmowy klientów <em>są bezpieczne.</em></h3>
+        <p>Asystent przetwarza wrażliwe informacje o klientach i nieruchomościach. Dbamy o to, żeby robił to zgodnie z najwyższymi standardami.</p>
       </div>
       <div class="trust-list">
         <div class="trust-item">
@@ -821,7 +746,57 @@
           <div class="check">✓</div>
           <div>
             <h5>Brak treningu modeli na Twoich danych</h5>
-            <span>Twoje rozmowy nie zasilają żadnego publicznego modelu AI. Punkt.</span>
+            <span>Twoje rozmowy nie zasilają żadnego publicznego modelu AI.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO / WALK THE TALK -->
+<section id="demo" class="demo-section pad-xl">
+  <div class="wrap">
+    <div class="demo-inner">
+      <div class="demo-copy reveal">
+        <span class="eyebrow">Przetestuj teraz</span>
+        <h2>Zadzwoń i <em>posłuchaj asystenta na żywo.</em></h2>
+        <p>Nie opisujemy — pokazujemy. Zadzwoń pod numer testowy i przeprowadź prawdziwą rozmowę z asystentem. Zaproponuje terminy, umówi wizytę, wyśle potwierdzenie.</p>
+        <div class="demo-cta">
+          <a href="#cta" class="btn btn-accent">
+            Umów krótką rozmowę
+            <span class="arrow">→</span>
+          </a>
+          <a href="mailto:hello@aurabot.pl" class="btn btn-ghost">Napisz do nas</a>
+        </div>
+      </div>
+
+      <div class="demo-card reveal" data-delay="1">
+        <div class="demo-label">Numer testowy</div>
+        <div class="demo-phone">
+          <a href="tel:+48000000000">+48 000 000 000</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="waveform">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <span style="font-size:12px;color:var(--ink-3);font-family:var(--mono);letter-spacing:.06em">Asystent aktywny · 24/7</span>
+        </div>
+        <div class="demo-desc">
+          <div class="demo-steps">
+            <div class="demo-step">
+              <div class="demo-step-num">1</div>
+              <span>Zadzwoń — asystent odbierze i przedstawi się.</span>
+            </div>
+            <div class="demo-step">
+              <div class="demo-step-num">2</div>
+              <span>Zapytaj o wolne terminy oglądania nieruchomości.</span>
+            </div>
+            <div class="demo-step">
+              <div class="demo-step-num">3</div>
+              <span>Umów wizytę — dostaniesz SMS z potwierdzeniem.</span>
+            </div>
           </div>
         </div>
       </div>
@@ -832,22 +807,22 @@
 <!-- CTA BANNER -->
 <section id="cta" class="cta-banner">
   <div class="wrap">
-    <span class="eyebrow reveal">Zacznijmy pilotaż</span>
+    <span class="eyebrow reveal">Porozmawiajmy</span>
     <h2 class="reveal" data-delay="1">
-      Pokażemy Agenta w akcji — <em>15 minut, na żywo.</em>
+      Pokaż nam swój proces. <em>Dopasujemy asystenta do Ciebie.</em>
     </h2>
-    <p class="reveal" data-delay="2">Zobacz, jak odbiera prawdziwe połączenie i umawia wizytę w Twoim kalendarzu. Decyzję o pilotażu podejmiesz po demo.</p>
+    <p class="reveal" data-delay="2">15 minut wystarczy, żeby pokazać Ci asystenta w akcji i ocenić, ile czasu może Ci zwrócić każdego tygodnia.</p>
     <div class="reveal" data-delay="3" style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
       <a href="#" class="btn btn-accent">
-        Umów się na demo
+        Umów rozmowę
         <span class="arrow">→</span>
       </a>
       <a href="mailto:hello@aurabot.pl" class="btn btn-ghost">Napisz do nas</a>
     </div>
     <div class="reveal" data-delay="4" style="margin-top: 36px; display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; color: var(--ink-3); font-size: 13px; font-family: var(--mono); letter-spacing: .06em;">
-      <span><span class="dot" style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-right: 8px; vertical-align: middle;"></span>Demo bez zobowiązań</span>
-      <span><span class="dot" style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-right: 8px; vertical-align: middle;"></span>Konfiguracja 3 000 zł jednorazowo</span>
-      <span><span class="dot" style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-right: 8px; vertical-align: middle;"></span>RODO compliant</span>
+      <span><span class="dot" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-right:8px;vertical-align:middle;"></span>Bez zobowiązań</span>
+      <span><span class="dot" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-right:8px;vertical-align:middle;"></span>Demo na żywo</span>
+      <span><span class="dot" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-right:8px;vertical-align:middle;"></span>RODO compliant</span>
     </div>
   </div>
 </section>
@@ -865,15 +840,15 @@
         <ul>
           <li><a href="#how">Jak to działa</a></li>
           <li><a href="#features">Funkcje</a></li>
-          <li><a href="#pricing">Pilotaż</a></li>
           <li><a href="#security">Bezpieczeństwo</a></li>
+          <li><a href="#demo">Przetestuj</a></li>
         </ul>
       </div>
       <div class="foot-col">
         <h6>Kontakt</h6>
         <ul>
           <li><a href="mailto:hello@aurabot.pl">hello@aurabot.pl</a></li>
-          <li><a href="#cta">Umów demo</a></li>
+          <li><a href="#cta">Umów rozmowę</a></li>
           <li><a href="#">Polityka prywatności</a></li>
           <li><a href="#">RODO</a></li>
         </ul>
